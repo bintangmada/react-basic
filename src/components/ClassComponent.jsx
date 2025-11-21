@@ -5,6 +5,7 @@ class ClassComponent extends React.Component {
     super(props);
     this.state = {
       count: 1,
+      input: "",
     };
 
     this.addNumber = this.addNumber.bind(this);
@@ -23,10 +24,18 @@ class ClassComponent extends React.Component {
       <>
         <h1>Ini Class Component</h1>
         <p>Count: {this.state.count}</p>
-        <button onClick={() => this.addNumber(2)}>ADD BY 1</button>
+        <button onClick={() => this.addNumber(1)}>ADD BY 1</button>
         <br />
-        <button onClick={() => this.decreaseNumber(2)}>DECREASE BY 1</button>
+        <button onClick={() => this.decreaseNumber(1)}>DECREASE BY 1</button>
         <ChildComponent count={this.state.count} />
+
+        <input
+          type="text"
+          value={this.state.input}
+          onChange={(e) => this.setState({ input: e.target.value })}
+        ></input>
+
+        <p>Inputan : {this.state.input}</p>
       </>
     );
   }
